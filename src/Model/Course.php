@@ -1,8 +1,9 @@
 <?php
 
 namespace Src\Model;
+use Src\Service\Scoreable;
 
-class Course
+class Course implements Scoreable
 {
     private string $name;
     private array $videos;
@@ -33,5 +34,10 @@ class Course
     public function recoverVideos(): array
     {
         return $this->videos;
+    }
+
+    public function recoverScore(): int
+    {
+        return 100;
     }
 }

@@ -1,8 +1,9 @@
 <?php
 
 namespace Src\Model;
+use Src\Service\Scoreable;
 
-class AluraMore extends Video
+class AluraMore extends Video implements Scoreable
 {
     private string $category;
 
@@ -15,5 +16,10 @@ class AluraMore extends Video
     public function recuperarUrl(): string
     {
         return str_replace(' ', '-', strtolower($this->category));
+    }
+
+    public function recoverScore(): int
+    {
+        return $this->minutesDuration() * 2;
     }
 }
