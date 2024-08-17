@@ -13,9 +13,9 @@ class AluraMore extends Video implements Scoreable
         $this->category = $category;
     }
 
-    public function recuperarUrl(): string
+    public function retrieveUrl(): string
     {
-        return str_replace(' ', '-', strtolower($this->category));
+        return 'http://videos.alura.com.br/' . str_replace(' ', '-', strtolower($this->category)) . '/' . str_replace(' ', '-', strtolower($this->name));
     }
 
     public function recoverScore(): int
