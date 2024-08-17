@@ -15,13 +15,9 @@ class Course
         $this->feedbacks = [];
     }
 
-    public function receiveFeedback(int $note, ?string $testimony): void
+    public function receiveFeedback(Feedback $feedback): void
     {
-        if ($note < 9 && empty($testimony)) {
-            throw new \DomainException('testimony mandatory');
-        }
-
-        $this->feedbacks[] = [$note, $testimony];
+        $this->feedbacks[] = $feedback;
     }
 
     public function addVideo(Video $video)
