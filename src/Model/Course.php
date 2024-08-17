@@ -2,8 +2,9 @@
 
 namespace Src\Model;
 use Src\Service\Scoreable;
+use Src\Service\Watchable;
 
-class Course implements Scoreable
+class Course implements Scoreable, Watchable
 {
     private string $name;
     private array $videos;
@@ -39,5 +40,12 @@ class Course implements Scoreable
     public function recoverScore(): int
     {
         return 100;
+    }
+
+    public function watch(): void
+    {
+        foreach($this->videos as $video){
+            $video->watch();
+        }
     }
 }

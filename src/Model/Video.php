@@ -1,8 +1,9 @@
 <?php
 
 namespace Src\Model;
+use Src\Service\Watchable;
 
-class Video
+class Video implements Watchable
 {
     protected bool $watched = false;
     protected string $name;

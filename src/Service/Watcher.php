@@ -3,19 +3,16 @@
 namespace Src\Service;
 
 use Src\Model\AluraMore;
-use Src\Model\Course;
 
 class Watcher
 {
-    public function watchCourse(Course $curso)
+    public function watch(Watchable $watchable)
     {
-        foreach ($curso->recoverVideos() as $video) {
-            $video->watch();
-        }
+        $watchable->watch();
     }
 
-    public function watchAluraMore(AluraMore $aluraMais)
+    public function watchAluraMore(AluraMore $aluraMore)
     {
-        $aluraMais->watch();
+        $aluraMore->watch();
     }
 }
